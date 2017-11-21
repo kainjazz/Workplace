@@ -19,4 +19,4 @@ RUN pip install git+https://github.com/yashaka/selene.git
 # Исходники проекта
 ADD . /root/
 
-CMD ["unbuffer", "behave", "/root/features"]
+CMD ["unbuffer", "behave", "/root/cart"]
