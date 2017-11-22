@@ -6,7 +6,7 @@ from selene import browser
 from selenium import webdriver
 
 driver = webdriver.Remote(
-        command_executor='http://172.17.0.1:4444/wd/hub',
+        command_executor='http://selenoid:4444',
         desired_capabilities={'browserName': 'chrome',
                               'version': '62.0',
                               'javascriptEnabled': True})
