@@ -1,0 +1,26 @@
+stages:
+  - build
+  - push
+
+variables:
+  BUILD_IMAGE_COMMIT_SHA: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  BUILD_IMAGE_BRANCH_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:latest
+
+build:
+  tags:
+    - shell
+  stage: build
+  script:
+    - docker build -t $BUILD_IMAGE_COMMIT_SHA .
+
+push:
+  tags:
+    - shell
+  stage: push
+  script:
+    - docker tag $BUILD_IMAGE_COMMIT_SHA $BUILD_IMAGE_BRANCH_LATEST
+
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+    - docker push $BUILD_IMAGE_COMMIT_SHA
+    - docker push $BUILD_IMAGE_BRANCH_LATEST
