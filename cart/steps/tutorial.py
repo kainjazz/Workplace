@@ -8,28 +8,27 @@ from selene import browser
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
-@Given("open '{url}'")
+@Given('открыта страница "{url}"')
 def step_impl(context, url):
-    # config.browser_name = BrowserName.CHROME
     browser.open_url(url)
 
-@when('press "login"')
+@when('нажать ссылку "Вход"')
 def step_impl(context):
     s('#link_enter').click()
 
-@then('open login form')
+@then('появится форма входа')
 def step_impl(context):
     s('[placeholder="Email адрес"]')
 
-@then('input login')
+@when('ввести емейл')
 def step_impl(context):
     s('[placeholder="Email адрес"]').send_keys('kainjazz@gmail.com')
 
-@then('input pass')
+@when('ввести пароль')
 def step_impl(context):
-    s('[placeholder="Пароль"]').send_keys('VAksImUjtaptut1').press_enter()
+    s('[placeholder="Пароль"]').send_keys('VAksImUjtaptut1')
 
-@then('press Enter')
+@when('нажать кнопку "Войти"')
 def step_impl(context):
     s('#link_login').click()
     sleep(4)

@@ -1,15 +1,14 @@
 
-Feature: login profile
+Feature: Личный кабинет
   @slow
-  Scenario: запустить простой тест
-    Given open 'http://220-volt.ru'
-    When press "login"
-    Then open login form
-    Then input login
-    Then input pass
-#    Then press Enter
-    Then go to LK
-    Then Are u in LK
+  Scenario: Вход в личный кабинет
+    Given открыта страница "http://220-volt.ru"
+    When нажать ссылку "Вход"
+    Then появится форма входа
+    When ввести емейл "ci-test-user@220-volt.ru"
+     And ввести пароль "password"
+     And нажать кнопку "Войти"
+    Then откроется страница со ссылкой "Перейти в личный кабинет"
 
    Scenario: nav in lk
      When in lk
