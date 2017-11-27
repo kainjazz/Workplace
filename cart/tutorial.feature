@@ -2,7 +2,7 @@
 Feature: login profile
   @slow
   Scenario: запустить простой тест
-    Given open http//:220-volt.ru
+    Given open 'http://220-volt.ru'
     When press "login"
     Then open login form
     Then input login
