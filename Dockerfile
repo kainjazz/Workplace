@@ -22,4 +22,4 @@ ADD . /root/
 
 WORKDIR /root
 
-CMD ["unbuffer", "behave"]
+CMD ["unbuffer", "behave", "--no-source"]
