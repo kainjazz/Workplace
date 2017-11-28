@@ -1,0 +1,16 @@
+version: "3.2"
+
+services:
+
+  # docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc/selenoid:/etc/selenoid aerokube/cm:latest-release selenoid configure --vnc -c /etc/selenoid
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    volumes:
+      - /etc/selenoid:/etc/selenoid
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: -container-network behave_default
+
+  behave:
+    image: docker.220v.ru/220v/behave/master
+    depends_on:
+      - selenoid
