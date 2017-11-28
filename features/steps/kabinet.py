@@ -47,30 +47,3 @@ def step_impl(context):
 def step_impl(context):
     browser.open_url(context.url)
     sleep(4)
-
-
-@then(u'перейти в личный кабинет')
-def step_impl(context):
-    s(by.xpath('//*[@id="auth_block_user_fullname"]')).click()
-    sleep(2)
-
-
-@then(u'нажать "контакты"')
-def step_impl(context):
-    s("[href='/profile/userinfo/']").click()
-
-
-@then(u'нажать "избранное"')
-def step_impl(context):
-    s("[href='/profile/favorites/']").click()
-
-
-@then(u'нажать "подарки"')
-def step_impl(context):
-    s("[href='/profile/giftcard/']").click()
-
-
-@then(u'нажать "хаммер"')
-def step_impl(context):
-    s("[href='/guarantee/']").click()
-    sleep(2)
