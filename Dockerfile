@@ -6,6 +6,7 @@ RUN yum install -y epel-release \
             gcc \
             git \
             openssh-clients \
+            bind-utils \
             expect \
             python-pip \
     && yum clean all
