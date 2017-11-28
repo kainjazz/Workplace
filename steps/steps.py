@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from time import sleep
+import sys
 
 from behave import *
 from selene.api import *
@@ -7,17 +8,11 @@ from selene import config
 from selene.browsers import BrowserName
 from selene import browser
 from selenium import webdriver
-
-driver = webdriver.Remote(
-        command_executor='http://172.17.0.1:4444/wd/hub',
-        desired_capabilities={'browserName': 'chrome',
-                              'version': '62.0',
-                              'javascriptEnabled': True})
-browser.set_driver(driver)
+from selenium.common.exceptions import WebDriverException
 
 @Given('go to 220-volt.ru')
 def step_impl(context):
-    config.browser_name = BrowserName.CHROME
+    #config.browser_name = BrowserName.CHROME
     browser.open_url('http://www.220-volt.ru/')
 
 @When('navigate to some category')
