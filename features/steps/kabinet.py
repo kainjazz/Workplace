@@ -9,7 +9,7 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
 
-@Given(u'открыта страница "{url}"')
+@given(u'открыта страница "{url}"')
 def step_impl(context, url):
     context.url = url
     browser.open_url(context.url)
@@ -37,13 +37,13 @@ def step_impl(context, password):
     sleep(1)
 
 
-@Then(u'нажать кнопку "Войти"')
+@when(u'нажать кнопку "Войти"')
 def step_impl(context):
     s('#link_login').click()
     sleep(4)
 
 
-@Then(u'откроется страница со ссылкой "Перейти в личный кабинет"')
+@then(u'откроется страница со ссылкой "Перейти в личный кабинет"')
 def step_impl(context):
     browser.open_url(context.url)
     sleep(4)
