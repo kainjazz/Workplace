@@ -14,7 +14,7 @@ def step_impl(context, url):
     context.url = url
     browser.open_url(context.url)
 
-@Then(u'выбран город "{city}"')
+@given(u'выбран город "{city}"')
 def step_impl(context, city):
     if s("[href='/cities/']").should(have.text(city)):
         print ("красава")
