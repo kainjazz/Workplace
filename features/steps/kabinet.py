@@ -14,10 +14,11 @@ def step_impl(context, url):
     context.url = url
     browser.open_url(context.url)
 
+
 @given(u'выбран город "{city}"')
 def step_impl(context, city):
     if s("[href='/cities/']").should(have.text(city)):
-        print ("красава")
+        assert True
     else:
         s("[href='/cities/']").click()
         s("[for='city7800000000000']").click()
