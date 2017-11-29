@@ -1,0 +1,8 @@
+# Запуститить selenoid
+docker-compose up -d selenoid
+
+# Собрать образ behave
+docker build -t behave .
+
+# Запустить behave
+docker-compose run --no-deps behave
