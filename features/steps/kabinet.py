@@ -43,7 +43,7 @@ def step_impl(context):
     sleep(4)
 
 
-@then(u'откроется страница со ссылкой "Перейти в личный кабинет"')
+@then(u'в шапке сайта появится ссылка "Перейти в личный кабинет"')
 def step_impl(context):
     browser.open_url(context.url)
     sleep(4)
