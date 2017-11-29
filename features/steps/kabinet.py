@@ -14,6 +14,15 @@ def step_impl(context, url):
     context.url = url
     browser.open_url(context.url)
 
+@Then(u'выбран город "{city}"')
+def step_impl(context, city):
+    if s("[href='/cities/']").should(have.text(city)):
+        print ("красава")
+    else:
+        s("[href='/cities/']").click()
+        s("[for='city7800000000000']").click()
+        sleep(2)
+
 
 @when(u'нажать ссылку "Вход"')
 def step_impl(context):
@@ -46,4 +55,5 @@ def step_impl(context):
 @then(u'в шапке сайта появится ссылка "Перейти в личный кабинет"')
 def step_impl(context):
     browser.open_url(context.url)
+    s("#auth_block_user_fullname").hover()
     sleep(4)
