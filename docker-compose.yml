@@ -11,6 +11,7 @@ services:
     command: -conf /etc/selenoid/browsers.json -container-network behave_default
 
   behave:
-    image: docker.220v.ru/220v/behave/master
+    #image: docker.220v.ru/220v/behave
+    image: behave
     depends_on:
       - selenoid
